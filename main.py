@@ -21,8 +21,12 @@ pygame.display.set_caption("Cool game")
 # Define clock
 clock = pygame.time.Clock()
 
-test_surface = pygame.Surface((60, 60))
-test_surface.fill("Red")
+text = pygame.font.Font("font/Pixeltype.ttf", 50)
+
+sky_surface = pygame.image.load("graphics/Sky.png")
+ground_surface = pygame.image.load("graphics/ground.png")
+
+text_surface = text.render("hello world!", False, "black")
 
 running = True
 while running:
@@ -31,9 +35,12 @@ while running:
             running = False
             pygame.quit()
             sys.exit()
-    window.fill(white)
 
-    window.blit(test_surface, (0, 0))
+    window.blit(sky_surface, (0, 0))
+    window.blit(ground_surface, (0, 300))
+
+    window.blit(text_surface, (300, 50))
 
     pygame.display.update()
+    pygame.display.flip()
     clock.tick(FRAME_RATE)
