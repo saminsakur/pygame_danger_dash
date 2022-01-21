@@ -32,6 +32,9 @@ snail_surface = pygame.image.load("graphics/snail/snail1.png").convert_alpha()
 snail_x_pos = 600
 snail_speed = 4
 
+player_surf = pygame.image.load("graphics/Player/player_walk_1.png").convert_alpha()
+player_rect = player_surf.get_rect(midbottom=(80, 300))
+
 running = True
 while running:
     for event in pygame.event.get():
@@ -49,6 +52,9 @@ while running:
         snail_x_pos = WIDTH
 
     window.blit(snail_surface, (snail_x_pos, 260))
+    player_rect.left += 1
+    player_rect.mid
+    window.blit(player_surf, player_rect)
 
     pygame.display.update()
     pygame.display.flip()
